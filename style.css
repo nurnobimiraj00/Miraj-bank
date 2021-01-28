@@ -1,0 +1,30 @@
+body{
+    padding: 100px;
+}
+.login-areas{
+    margin-top: 50px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px gray;
+    padding: 50px;
+}
+.button{
+    width: 75px;
+} 
+#input-area{
+    display: none;
+}
+.deposit{
+    background-color: slateblue;
+}
+.withdrow{
+    background-color: lightsalmon;
+}
+.balance{
+    background-color: orange;
+}
+.box{
+    color: white;
+    border-radius: 10px;
+    margin: 0px 20px;
+    padding: 20px;
+}

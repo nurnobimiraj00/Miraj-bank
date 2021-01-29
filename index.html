@@ -5,73 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miraj Bank</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="js+css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
 </head>
-<body>
-        <div id="login-area">
-            <h1 class="text-center">Welcome to Miraj Bank.</h1>
-            <div class="login-areas">
-                <h4>LOG IN</h4>
-                <!-- <form action=""> -->
-                    <input class="form-control" type="email" name="" id="" placeholder="Write your Email"><br>
-                    <input class="form-control" type="password" name="" id="" placeholder="passeord"><br>
-                    <button id="enter" class="btn btn-success button" type="submit">Enter</button>
-                    <input class="btn btn-danger button2" type="reset" value="Reset">
-                <!-- </form> -->
-               
-            </div>
-        </div>
-
-        <div id="input-area" >
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="deposit box">
-                        <h2>Diposit</h2>
-                        <h5>$ <span id="currntDiposit">00</span></h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="withdrow box">
-                        <h2>Withdrow</h2>
-                        <h5>$00.00</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="balance box">
-                    <h2>Balance</h2>
-                    <h5>$1000.00</h5>
-                    </div>
+    <body>
+            <div id="login-area">
+                <h1 class="text-center">Welcome to Miraj Bank.</h1>
+                <div class="submit-area">
+                    <h4>LOG IN</h4>
+                        <!-- <form action=""> -->
+                            <input class="form-control" type="email" name="" id="" placeholder="Write your Email"><br>
+                            <input class="form-control" type="password" name="" id="" placeholder="passeord"><br>
+                            <button id="enter" class="btn btn-success button" type="submit">Enter</button>
+                            <input class="btn btn-danger button2" type="reset" value="Reset">
+                        <!-- </form> -->
+                
                 </div>
             </div>
 
-            <!-- next part -->
-            <div class="row">
-                 <div class="col-md-6">
-                     <div class="login-areas">
-                        <h4>Deposit</h4>
-                        <input id="dipoAmount" type="text" class="form-control" placeholder="$you want to deposit"><br>
-                        <button id="diposit-Btn" class="btn btn-success">Deposit</button>
+            <!-- 2nd page -->
+
+            <article id="transection-area">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="deposit box">
+                                <h2>Diposit</h2>
+                                <h5>$ <span id="currntDiposit">00</span></h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="withdrow box">
+                                <h2>Withdrow</h2>
+                                <h5>$ <span id="currntwithdrow">00.00</span> </h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="balance box">
+                            <h2>Balance</h2>
+                            <h5>$ <span id="currntBalance">1000.00</span></h5>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                 <div class="col-md-6">
-                     <div class="login-areas">
-                        <h4>Withdrow</h4>
-                        <input type="text" class="form-control" placeholder="$you want to withdrow"><br>
-                        <button class="btn btn-success">Withdrow</button>
+
+                    <!-- next part -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="submit-area">
+                                <h4>Deposit</h4>
+                                <input id="dipositAmount" type="text" class="form-control" placeholder="$you want to deposit"><br>
+                                <button id="addDiposit" class="btn btn-success">Deposit</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="submit-area">
+                                <h4>Withdrow</h4>
+                                <input id="withdrowAmount" type="text" class="form-control" placeholder="$you want to withdrow"><br>
+                                <button id="addwithdrow" class="btn btn-success">Withdrow</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    <script>
-        // login button coding here.
-        const enterBtn = document.getElementById("enter");
-        enterBtn.addEventListener("click", function(){
-            const fulArea = document.getElementById("login-area");
-            fulArea.style.display = "none";
-            const inputArea = document.getElementById('input-area');
-            inputArea.style.display = 'block';
-        })
-       
-    </script>
-</body>
+            </article>
+        <script>
+        // login button event handler.
+            const enterBtn = document.getElementById("enter");
+            enterBtn.addEventListener("click", function(){
+                const fulArea = document.getElementById("login-area");
+                fulArea.style.display = "none";
+                const inputArea = document.getElementById('transection-area');
+                inputArea.style.display = 'block';
+            })
+        //    deposit button event handler
+                const dipositBtbn = document.getElementById("addDiposit");
+                dipositBtbn.addEventListener("click" , function(){
+                const dipositAmount = document.getElementById("dipositAmount").value;
+                const depositnumbar = parseFloat(dipositAmount);
+
+
+                updateSpanText("currntDiposit", depositnumbar);
+                updateSpanText("currntBalance", depositnumbar);
+
+                 document.getElementById("dipositAmount").value = "";
+            })
+            
+        // withdrow button event hander
+
+                const withdrowBtbn = document.getElementById("addwithdrow");
+                withdrowBtbn.addEventListener("click", function(){
+                const withdrowAmount = document.getElementById("withdrowAmount").value;
+                const withdrownumbar = parseFloat(withdrowAmount);
+
+                updateSpanText("currntwithdrow", withdrownumbar);
+                updateSpanText("currntBalance", -1*withdrownumbar);
+
+                document.getElementById("withdrowAmount").value = "";
+
+                // const currntBalance = document.getElementById("currntBalance").innerText;
+                // const currntBalancenum = parseFloat(currntBalance);
+                // const totalBalance =currntBalancenum - withdrownumbar;
+                // document.getElementById("currntBalance").innerText = totalBalance;
+             })
+             function updateSpanText(id, depositnumbar){
+                const currnt = document.getElementById(id).innerText;
+                const currntnum = parseFloat(currnt);
+                const total = depositnumbar + currntnum;
+                document.getElementById(id).innerText = total;
+            }
+        </script>
+    </body>
 </html>

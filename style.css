@@ -1,17 +1,17 @@
 body{
     padding: 100px;
 }
-.login-areas{
-    margin-top: 50px;
-    border-radius: 15px;
-    box-shadow: 5px 5px 15px gray;
-    padding: 50px;
+.submit-area{
+    margin-top: 100px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px gray;
 }
-.button{
-    width: 75px;
-} 
-#input-area{
-    display: none;
+.box{
+    color: white;
+    box-shadow: 5px 5px 10px gray;
+    padding: 20px;
+    border-radius: 10px;
 }
 .deposit{
     background-color: slateblue;
@@ -22,9 +22,6 @@ body{
 .balance{
     background-color: orange;
 }
-.box{
-    color: white;
-    border-radius: 10px;
-    margin: 0px 20px;
-    padding: 20px;
+#transection-area{
+    display: none;
 }
